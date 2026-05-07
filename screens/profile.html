@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#3c475a",
+                    "surface-container-low": "#f5f3f4",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#1e293b",
+                    "on-secondary-container": "#fefcff",
+                    "surface-container-high": "#eae7e9",
+                    "surface-container-highest": "#e4e2e3",
+                    "primary": "#091426",
+                    "on-secondary-fixed": "#001a42",
+                    "primary-fixed": "#d8e3fb",
+                    "tertiary-fixed-dim": "#ddc39d",
+                    "surface": "#fbf8fa",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#a38c6a",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e4e2e3",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#fbf8fa",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1b1b1d",
+                    "secondary-container": "#2170e4",
+                    "surface-container": "#f0edef",
+                    "surface-dim": "#dcd9db",
+                    "on-primary-container": "#8590a6",
+                    "inverse-on-surface": "#f3f0f2",
+                    "inverse-primary": "#bcc7de",
+                    "background": "#fbf8fa",
+                    "secondary": "#0058be",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c5c6cd",
+                    "on-primary-fixed": "#111c2d",
+                    "on-tertiary-fixed": "#271902",
+                    "inverse-surface": "#303032",
+                    "on-background": "#1b1b1d",
+                    "surface-tint": "#545f73",
+                    "on-error": "#ffffff",
+                    "outline": "#75777d",
+                    "on-surface-variant": "#45474c",
+                    "tertiary-fixed": "#fadfb8",
+                    "on-tertiary-fixed-variant": "#564427",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "secondary-fixed": "#d8e2ff",
+                    "tertiary-container": "#35260c",
+                    "tertiary": "#1e1200",
+                    "primary-fixed-dim": "#bcc7de"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "xl": "32px",
+                    "xxl": "48px",
+                    "gutter": "24px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "h1": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "h3": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "32px", "letterSpacing": "0", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "h2": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbf8fa; color: #1b1b1d; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none fixed top-0 w-full z-50">
+<div class="flex items-center justify-between px-lg py-md w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary cursor-pointer md:hidden" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">MedTrust</h1>
+</div>
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-low transition-colors px-sm py-xs rounded-lg" href="#">Dashboard</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold font-label-sm text-label-sm hover:bg-surface-container-low transition-colors px-sm py-xs rounded-lg" href="#">Appointments</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-low transition-colors px-sm py-xs rounded-lg" href="#">Records</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-low transition-colors px-sm py-xs rounded-lg" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-xs rounded-full" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<main class="pt-[80px] pb-[100px] px-md md:px-lg max-w-container-max mx-auto">
+<!-- Doctor Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter py-xl">
+<!-- Profile Info Column -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30 overflow-hidden">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden mb-md">
+<img alt="Doctor Profile" class="w-full h-full object-cover" data-alt="A professional and compassionate male physician in his late 40s wearing a clean white lab coat and a stethoscope. He is standing in a brightly lit, modern medical clinic with soft blue and white accents. The lighting is soft and airy, conveying a sense of expertise and reliability. The aesthetic is clean, professional, and corporate minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDKsXps-AK0E1DlYgNaawhOFZwAeiDdgLGqDY8jcR4D8c6nSEscZy7AHIfwU08aemYzOUo51pjm2MixQvhret_wmGJ1Vco8DrYinkWt4KC5i-ytCu7i_lSddFz9OmNrF1aQa0IFI_2yvyVHwsr_OSYdsFFu8qTv8ZgR_jp7ad1IOWFeL_u4FIJwqdqQNWohyWD-d6QGnyJOMu33MBNIpj-0bQPlgQAI38cSi9LCXzUc-1FfCR1aLkvboAb8QIEYPBAJnY0z5lGcVR"/>
+<div class="absolute top-sm right-sm bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full flex items-center gap-xs shadow-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-[12px] font-bold">BOARD CERTIFIED</span>
+</div>
+</div>
+<div>
+<h2 class="font-h2 text-h2 text-primary mb-xs">Dr. Julian Vance</h2>
+<p class="font-body-md text-secondary font-semibold mb-sm">Senior Interventional Cardiologist</p>
+<div class="flex items-center gap-sm mb-md">
+<div class="flex items-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star_half" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-body-md text-on-surface-variant">(128 reviews)</span>
+</div>
+<div class="flex flex-wrap gap-sm">
+<span class="px-sm py-xs bg-surface-container rounded-full text-on-surface-variant font-label-sm">Heart Surgery</span>
+<span class="px-sm py-xs bg-surface-container rounded-full text-on-surface-variant font-label-sm">Heart Failure</span>
+<span class="px-sm py-xs bg-surface-container rounded-full text-on-surface-variant font-label-sm">Lipidology</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
+<h3 class="font-h3 text-h3 text-primary mb-md">Contact &amp; Location</h3>
+<div class="flex flex-col gap-md">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on">location_on</span>
+<div class="font-body-md text-on-surface-variant">
+<p class="font-bold text-on-surface">MedTrust Heart Center</p>
+<p>422 Medical Plaza Drive</p>
+<p>Suite 201, San Francisco, CA</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary" data-icon="phone">phone</span>
+<p class="font-body-md text-on-surface-variant">(555) 123-4567</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking & Details Column -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Interactive Calendar Section -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border-t-4 border-secondary border-outline-variant/30">
+<div class="flex items-center justify-between mb-lg">
+<div>
+<h3 class="font-h3 text-h3 text-primary">Book Appointment</h3>
+<p class="font-body-md text-on-surface-variant">Select your preferred date and time</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm hover:bg-surface-container rounded-full border border-outline-variant"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<span class="font-body-md font-bold text-on-surface">Oct 23 - Oct 29, 2023</span>
+<button class="p-sm hover:bg-surface-container rounded-full border border-outline-variant"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+<!-- Weekly Slots Grid -->
+<div class="grid grid-cols-4 md:grid-cols-7 gap-sm mb-xl">
+<!-- Monday -->
+<div class="flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px]">Mon</p>
+<p class="font-h3 text-on-surface">23</p>
+</div>
+<div class="flex flex-col w-full gap-xs">
+<button class="py-xs px-xs bg-surface-container-low text-on-surface-variant rounded-lg font-label-sm text-[12px] opacity-50 cursor-not-allowed">09:00 AM</button>
+<button class="py-xs px-xs bg-surface-container-low text-on-surface-variant rounded-lg font-label-sm text-[12px] opacity-50 cursor-not-allowed">10:30 AM</button>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px]">Tue</p>
+<p class="font-h3 text-on-surface">24</p>
+</div>
+<div class="flex flex-col w-full gap-xs">
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">09:00 AM</button>
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">11:00 AM</button>
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">02:00 PM</button>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px]">Wed</p>
+<p class="font-h3 text-on-surface">25</p>
+</div>
+<div class="flex flex-col w-full gap-xs">
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">10:00 AM</button>
+<button class="py-xs px-xs bg-secondary text-white rounded-lg font-label-sm text-[12px] shadow-md ring-2 ring-secondary ring-offset-2">01:30 PM</button>
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">03:30 PM</button>
+</div>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px]">Thu</p>
+<p class="font-h3 text-on-surface">26</p>
+</div>
+<div class="flex flex-col w-full gap-xs">
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">09:30 AM</button>
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">11:30 AM</button>
+</div>
+</div>
+<!-- Friday -->
+<div class="flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px]">Fri</p>
+<p class="font-h3 text-on-surface">27</p>
+</div>
+<div class="flex flex-col w-full gap-xs">
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">08:00 AM</button>
+<button class="py-xs px-xs border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all rounded-lg font-label-sm text-[12px]">01:00 PM</button>
+</div>
+</div>
+<!-- Sat/Sun hidden or simplified -->
+<div class="hidden md:flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px] opacity-40">Sat</p>
+<p class="font-h3 text-on-surface opacity-40">28</p>
+</div>
+<div class="flex flex-col w-full gap-xs italic text-center text-on-surface-variant font-caption">Off</div>
+</div>
+<div class="hidden md:flex flex-col items-center gap-sm">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase text-[10px] opacity-40">Sun</p>
+<p class="font-h3 text-on-surface opacity-40">29</p>
+</div>
+<div class="flex flex-col w-full gap-xs italic text-center text-on-surface-variant font-caption">Off</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-lg">
+<div class="flex items-center gap-md">
+<div class="p-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="videocam">videocam</span>
+</div>
+<div>
+<p class="font-label-sm font-bold text-on-surface">Virtual Consultation</p>
+<p class="font-caption text-on-surface-variant">Eligible for insurance coverage</p>
+</div>
+</div>
+<button class="bg-secondary text-white px-xl py-md rounded-xl font-body-md font-bold hover:bg-secondary-container transition-all active:scale-95 shadow-md">Confirm Booking</button>
+</div>
+</div>
+<!-- Info Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bio -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
+<h3 class="font-h3 text-h3 text-primary mb-md">About Dr. Vance</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                            With over 20 years of experience in cardiovascular medicine, Dr. Vance specializes in complex coronary interventions and structural heart disease. He is renowned for his patient-centered approach and commitment to utilizing the latest minimally invasive technologies to ensure optimal recovery and long-term health.
+                        </p>
+</div>
+<!-- Education -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
+<h3 class="font-h3 text-h3 text-primary mb-md">Education &amp; Training</h3>
+<ul class="flex flex-col gap-sm">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+<div class="font-body-md">
+<p class="font-bold text-on-surface">Stanford University</p>
+<p class="text-on-surface-variant font-caption">Residency, Cardiology</p>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+<div class="font-body-md">
+<p class="font-bold text-on-surface">Johns Hopkins University</p>
+<p class="text-on-surface-variant font-caption">Doctor of Medicine (M.D.)</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-h3 text-h3 text-primary">Patient Reviews</h3>
+<button class="text-secondary font-label-sm font-bold flex items-center gap-xs">View All <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<div class="flex flex-col gap-lg">
+<div class="pb-lg border-b border-outline-variant/20">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">EM</div>
+<div>
+<p class="font-label-sm font-bold text-on-surface">Elena Martinez</p>
+<p class="font-caption text-on-surface-variant">Oct 12, 2023</p>
+</div>
+</div>
+<div class="flex text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant italic">"Dr. Vance is exceptionally professional and took the time to explain my procedure in detail. I felt very safe and cared for throughout the entire process."</p>
+</div>
+<div>
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold">RB</div>
+<div>
+<p class="font-label-sm font-bold text-on-surface">Robert Bennett</p>
+<p class="font-caption text-on-surface-variant">Sep 28, 2023</p>
+</div>
+</div>
+<div class="flex text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant italic">"Top-notch specialist. The clinic staff were efficient, and Dr. Vance's expertise is evident from the first minute of consultation."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center py-sm px-md bg-surface-container-lowest dark:bg-surface-container-low border-t border-outline-variant z-50 rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-semibold active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event" data-weight="fill" style="font-variation-settings: 'FILL' 1;">event</span>
+<span class="font-label-sm text-label-sm">Appointments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-label-sm text-label-sm">Records</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

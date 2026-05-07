@@ -1,26 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-on-primary-fixed-variant: #3c475a;
+  --color-surface-container-low: #f5f3f4;
+  --color-on-secondary-fixed-variant: #004395;
+  --color-on-error-container: #93000a;
+  --color-primary-container: #1e293b;
+  --color-on-secondary-container: #fefcff;
+  --color-surface-container-high: #eae7e9;
+  --color-surface-container-highest: #e4e2e3;
+  --color-primary: #091426;
+  --color-on-secondary-fixed: #001a42;
+  --color-primary-fixed: #d8e3fb;
+  --color-tertiary-fixed-dim: #ddc39d;
+  --color-surface: #fbf8fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary-container: #a38c6a;
+  --color-on-primary: #ffffff;
+  --color-surface-variant: #e4e2e3;
+  --color-on-tertiary: #ffffff;
+  --color-surface-bright: #fbf8fa;
+  --color-error: #ba1a1a;
+  --color-on-secondary: #ffffff;
+  --color-on-surface: #1b1b1d;
+  --color-secondary-container: #2170e4;
+  --color-surface-container: #f0edef;
+  --color-surface-dim: #dcd9db;
+  --color-on-primary-container: #8590a6;
+  --color-inverse-on-surface: #f3f0f2;
+  --color-inverse-primary: #bcc7de;
+  --color-background: #fbf8fa;
+  --color-secondary: #0058be;
+  --color-error-container: #ffdad6;
+  --color-outline-variant: #c5c6cd;
+  --color-on-primary-fixed: #111c2d;
+  --color-on-tertiary-fixed: #271902;
+  --color-inverse-surface: #303032;
+  --color-on-background: #1b1b1d;
+  --color-surface-tint: #545f73;
+  --color-on-error: #ffffff;
+  --color-outline: #75777d;
+  --color-on-surface-variant: #45474c;
+  --color-tertiary-fixed: #fadfb8;
+  --color-on-tertiary-fixed-variant: #564427;
+  --color-secondary-fixed-dim: #adc6ff;
+  --color-secondary-fixed: #d8e2ff;
+  --color-tertiary-container: #35260c;
+  --color-tertiary: #1e1200;
+  --color-primary-fixed-dim: #bcc7de;
+
+  --spacing-sm: 8px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-gutter: 24px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xs: 4px;
+  --spacing-container-max: 1280px;
+  --spacing-unit: 4px;
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --font-body-md: "Inter", sans-serif;
+  --font-caption: "Inter", sans-serif;
+  --font-h1: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-h3: "Inter", sans-serif;
+  --font-label-sm: "Inter", sans-serif;
+  --font-h2: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+@utility text-caption {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+@utility text-h1 {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+@utility text-h3 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+@utility text-label-sm {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+}
+@utility text-h2 {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
 }

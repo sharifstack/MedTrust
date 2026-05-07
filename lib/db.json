@@ -1,0 +1,190 @@
+{
+  "user": {
+    "id": "u1",
+    "name": "Alexander",
+    "fullName": "Alexander Thompson",
+    "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuAcgC8FxQdCHU3uy1ex-FNX0q3Q5Swlaqa2UrMgk6uRQKIpxN0pxR9opX_T2RRRQ5yBLAJC8f9OsdJGqKYBIY9xaL3e4K5Rp7O0w7_pKISzxUH1S2LLiOrn9ROFcKms84z7XyVy_YeE4fNUYVmnhOStC1cTVBjhJrFHqxBffOju-tpbOPw-KvbrJ-jFGXrhxVq8SePZYzDC-7g6ycXJbpkYaL12e3AfWksXt-3EZi8ccDo78516vdHlzeZLZPxgBwGFcpWCMvyAfAQs",
+    "vitals": {
+      "heartRate": 85,
+      "bloodPressure": "110/75",
+      "lastCheckedDate": "2026-05-07",
+      "dailyChecks": 1
+    },
+    "insurance": "Blue Cross Blue Shield",
+    "memberId": "kkkk",
+    "email": "alex@medtrust.com",
+    "password": "password123"
+  },
+  "vitalsHistory": [
+    {
+      "id": "vh1778170007344",
+      "date": "2026-05-07T16:06:47.344Z",
+      "heartRate": 85,
+      "bloodPressure": "110/75"
+    },
+    {
+      "id": "vh1",
+      "date": "2023-10-24T08:30:00Z",
+      "heartRate": 72,
+      "bloodPressure": "118/76"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d1",
+      "name": "Julian Sterling",
+      "specialty": "Cardiology",
+      "title": "Senior Cardiologist, MD, FACC",
+      "rating": 4.9,
+      "reviews": 2104,
+      "distance": 0.8,
+      "experienceYears": 15,
+      "nextAvailable": "Today, 2:45 PM",
+      "bio": "Specializing in non-invasive cardiology and advanced heart failure management. Dr. Sterling has over 15 years of experience in leading Manhattan cardiac centers.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBeqKZsUQLVgsykgvkulXs3A-q3d8mseo8OPkZ81yT9kYnOc_W1wgVd7ynUKZsNJfik4ORjnTWfllNN1ZgVrxIdU9olQPnh5Gs1QAH61ZwLuxrLuu71-PdHFUdJi-FWod_e1YmU1bXYejRa1iQSviAPsLNHHjxr9xk0nJl87qi8E0c2ygjuCOy_zitug_r_JVvpcuhnyBWQwLtVD1bWrIGgQ9r26rSJIlGleLmlw0TlUXXTySfLPxQpfuU72qkrmWduiTuPNkMqKobd"
+    },
+    {
+      "id": "d2",
+      "name": "Elena Rodriguez",
+      "specialty": "Dermatology",
+      "title": "Dermatology & Skin Surgery",
+      "rating": 4.8,
+      "reviews": 1562,
+      "distance": 1.4,
+      "experienceYears": 12,
+      "nextAvailable": "Tomorrow, 10:00 AM",
+      "bio": "Expert in medical and cosmetic dermatology. Specializes in advanced skin rejuvenation, acne treatments, and skin cancer screenings using the latest laser technology.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDMz7pObtbH2S6kihXVDxN1pB1cYyshNV1OlEO0aQllsck1hvQbj-Lyxn9BVQwAp5diPyU9bxZhOq9j2iqtHmu1Hhh3gJjedoTox6CcqiMxxU99md_9iDCfcNZ4utR_vzHD4i-ksyhx1r3eB4urW6rbTDGEkZdp32faVD2YmKIN2wnnlY6wF-8VrWmjDW8GF1yi6_57fJAstu-Jfk3ABVlMnRvVEZDR4cMNdqOEQkh0cBFt5Y_vstUCVOIBbY4VKa5ZICPqUjYDzwPm"
+    },
+    {
+      "id": "d3",
+      "name": "Michael Chen",
+      "specialty": "Pediatrics",
+      "title": "Pediatric Medicine",
+      "rating": 5,
+      "reviews": 943,
+      "distance": 2.5,
+      "experienceYears": 8,
+      "nextAvailable": "Wednesday, 9:15 AM",
+      "bio": "Dedicated to providing compassionate care for children from infancy through adolescence. Dr. Chen is known for his calm approach and expertise in pediatric nutrition.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAE4R60Dg0ME_QhM3yk6BkZB6Z48bsYnetrTa2rqyxj_NMGEwPbGKyShuZOOPwtUc6gOCQ9XU3urZwvSjnWsN68jG7n7Pr51q92jsst5Ofb3SwslzgalUFIedfZPrCl_fBZ8ebzD4HTWazmG54QrxrayFl7Y3KlY9ok8EpfEDSphG37eX73ZFoBtoVm4BDeyTMqGB5fDxkwPHSbrKxkooucNy2NkRCE-xDFDfazjYXcS-cX-hz_CTEgst6fPhN4WfNjnW9b3hbu8T9m"
+    },
+    {
+      "id": "d4",
+      "name": "Julian Vance",
+      "specialty": "Cardiology",
+      "title": "Senior Interventional Cardiologist",
+      "rating": 4.8,
+      "reviews": 128,
+      "distance": 1.2,
+      "experienceYears": 22,
+      "nextAvailable": "Thursday, 11:00 AM",
+      "bio": "With over 20 years of experience in cardiovascular medicine, Dr. Vance specializes in complex coronary interventions and structural heart disease. He is renowned for his patient-centered approach.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBvDKsXps-AK0E1DlYgNaawhOFZwAeiDdgLGqDY8jcR4D8c6nSEscZy7AHIfwU08aemYzOUo51pjm2MixQvhret_wmGJ1Vco8DrYinkWt4KC5i-ytCu7i_lSddFz9OmNrF1aQa0IFI_2yvyVHwsr_OSYdsFFu8qTv8ZgR_jp7ad1IOWFeL_u4FIJwqdqQNWohyWD-d6QGnyJOMu33MBNIpj-0bQPlgQAI38cSi9LCXzUc-1FfCR1aLkvboAb8QIEYPBAJnY0z5lGcVR"
+    },
+    {
+      "id": "d5",
+      "name": "Sarah Mitchell",
+      "specialty": "Dermatology",
+      "title": "Cosmetic Dermatologist",
+      "rating": 4.7,
+      "reviews": 850,
+      "distance": 3.1,
+      "experienceYears": 10,
+      "nextAvailable": "Friday, 1:30 PM",
+      "bio": "Specializes in skin rejuvenation, laser therapy, and aesthetic medicine. Dr. Mitchell is committed to helping patients achieve healthy, glowing skin through personalized care plans.",
+      "image": "https://images.unsplash.com/photo-1559839734-2b71f153678f?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "d6",
+      "name": "James Wilson",
+      "specialty": "Neurology",
+      "title": "Cognitive Neurologist",
+      "rating": 4.9,
+      "reviews": 420,
+      "distance": 1.9,
+      "experienceYears": 18,
+      "nextAvailable": "Monday, 10:45 AM",
+      "bio": "Expert in memory disorders, dementia, and cognitive impairment. Dr. Wilson focuses on early diagnosis and innovative treatment strategies for neurological conditions.",
+      "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "d7",
+      "name": "David Park",
+      "specialty": "Dermatology",
+      "title": "Medical Dermatologist",
+      "rating": 4.6,
+      "reviews": 1200,
+      "distance": 5.4,
+      "experienceYears": 14,
+      "nextAvailable": "Tomorrow, 2:00 PM",
+      "bio": "Specializing in the treatment of chronic skin conditions such as psoriasis and eczema. Dr. Park uses evidence-based approaches to provide long-term relief for his patients.",
+      "image": "/doctor_david_park_1778173492779.png"
+    },
+    {
+      "id": "d8",
+      "name": "Sophia Williams",
+      "specialty": "Pediatrics",
+      "title": "General Pediatrician",
+      "rating": 4.9,
+      "reviews": 2100,
+      "distance": 4.2,
+      "experienceYears": 9,
+      "nextAvailable": "Today, 4:00 PM",
+      "bio": "Passionate about child health and wellness. Dr. Williams provides comprehensive care for infants, children, and adolescents, with a focus on preventive medicine.",
+      "image": "/doctor_sophia_williams_1778173505301.png"
+    },
+    {
+      "id": "d9",
+      "name": "Robert Miller",
+      "specialty": "Neurology",
+      "title": "Clinical Neurologist",
+      "rating": 4.7,
+      "reviews": 560,
+      "distance": 6.8,
+      "experienceYears": 25,
+      "nextAvailable": "Wednesday, 11:30 AM",
+      "bio": "Extensive experience in treating neuromuscular disorders and chronic headaches. Dr. Miller is dedicated to improving the quality of life for his patients through tailored therapy.",
+      "image": "/doctor_robert_miller_1778173520735.png"
+    }
+
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "doctorId": "d4",
+      "date": "Oct 12, 2023",
+      "time": "09:30 AM",
+      "status": "Completed",
+      "type": "General Checkup",
+      "location": "MedTrust Central Clinic, Room 402",
+      "notes": "Routine annual checkup."
+    },
+    {
+      "id": "a2",
+      "doctorId": "d2",
+      "date": "Oct 24, 2023",
+      "time": "3:00 PM",
+      "status": "Cancelled",
+      "type": "Dermatology",
+      "location": "Skin & Laser Center, Suite 10",
+      "notes": "Follow-up on skin rash."
+    },
+    {
+      "id": "a1778170828797",
+      "doctorId": "d2",
+      "date": "Oct 30",
+      "time": "11:00 AM",
+      "status": "Pending",
+      "type": "Dermatology"
+    },
+    {
+      "id": "a1778170889963",
+      "doctorId": "d4",
+      "date": "Nov 1",
+      "time": "2:00 PM",
+      "status": "Pending",
+      "type": "General Checkup"
+    }
+  ]
+}
