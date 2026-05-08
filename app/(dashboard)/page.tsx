@@ -1,8 +1,8 @@
 import { getUser, getAppointments, getDoctors } from '@/lib/actions';
 import Link from 'next/link';
+import MessageDoctorButton from '@/components/MessageDoctorButton';
 import { 
   MdEvent, 
-  MdChatBubble, 
   MdSchedule, 
   MdChevronRight, 
   MdFavorite, 
@@ -36,10 +36,7 @@ export default async function Page() {
   <MdEvent size={28} />
   <span className="font-h3 text-h3">Book New Appointment</span>
 </Link>
-<button className="flex items-center justify-center space-x-md bg-surface-container-lowest border border-outline-variant text-primary px-lg py-xl rounded-xl shadow-[0px_4px_20px_rgba(30,41,59,0.05)] hover:bg-surface-container-low transition-all active:scale-95 group">
-  <MdChatBubble size={28} className="text-secondary" />
-  <span className="font-h3 text-h3">Message Doctor</span>
-</button>
+<MessageDoctorButton />
 </section>
 {/*  Main Dashboard Content (Bento Style)  */}
 <div className="grid grid-cols-1 lg:grid-cols-12 gap-lg">

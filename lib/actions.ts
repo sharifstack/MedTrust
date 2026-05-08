@@ -199,3 +199,27 @@ export async function getSession() {
   const session = cookieStore.get('medtrust_session');
   return session?.value === 'authenticated';
 }
+
+export async function getNotifications() {
+  const db = getDb();
+  return db.notifications || [];
+}
+
+export async function markNotificationAsRead(id: string) {
+  const db = getDb();
+  if (!db.notifications) return;
+  const index = db.notifications.findIndex((n: any) => n.id === id);
+  if (index !== -1) {
+    db.notifications[index].read = true;
+    saveDb(db);
+  }
+}
+
+export async function markAllNotificationsAsRead() {
+  const db = getDb();
+  if (!db.notifications) return;
+  db.notifications.forEach((n: any) => {
+    n.read = true;
+  });
+  saveDb(db);
+}

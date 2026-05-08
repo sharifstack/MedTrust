@@ -1,6 +1,7 @@
 import { getUser, getVitalsHistory } from '@/lib/actions';
 import EditProfileModal from '@/components/EditProfileModal';
 import VitalsDashboard from '@/components/VitalsDashboard';
+import ProfileCard from '@/components/ProfileCard';
 
 export default async function Page() {
   const user = await getUser();
@@ -16,13 +17,7 @@ export default async function Page() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
         {/* Personal Details */}
         <div className="md:col-span-1 flex flex-col gap-lg">
-          <div className="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30 flex flex-col items-center text-center">
-            <div className="w-32 h-32 rounded-full overflow-hidden mb-md border-4 border-surface-container">
-              <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
-            </div>
-            <h2 className="font-h2 text-h2 text-primary">{user.fullName}</h2>
-            <p className="font-body-md text-on-surface-variant">Patient ID: {user.id.toUpperCase()}-0092</p>
-          </div>
+          <ProfileCard />
           
           <div className="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
             <h3 className="font-h3 text-h3 text-primary mb-md">Insurance</h3>
