@@ -43,7 +43,7 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
               <span className="text-caption font-bold uppercase tracking-wider">{month || '-'}</span>
               <span className="text-h2 font-bold leading-none">{parseInt(day, 10) || '-'}</span>
             </div>
-            <div className="flex flex-col md:items-center">
+            <div className="flex flex-col md:items-center gap-1.5">
               <span className={`px-sm py-xs rounded-lg font-caption font-bold text-[10px] uppercase border
                 ${appt.status === 'Upcoming' ? 'bg-secondary/10 text-secondary border-secondary/20' : 
                   appt.status === 'Pending' ? 'bg-warning/10 text-warning border-warning/20' :
@@ -51,6 +51,12 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
                   'bg-error/10 text-error border-error/20'}`}>
                 {appt.status}
               </span>
+              {appt.paymentStatus && (
+                <span className={`px-sm py-xs rounded-lg font-caption font-bold text-[10px] uppercase border
+                  ${appt.paymentStatus === 'Paid' ? 'bg-green-500/10 text-green-600 border-green-500/20' : 'bg-red-500/10 text-red-600 border-red-500/20'}`}>
+                  {appt.paymentStatus}
+                </span>
+              )}
               <span className="mt-1 font-label-sm text-on-surface-variant">{appt.time}</span>
             </div>
           </div>
@@ -76,7 +82,7 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
             </div>
 
             <div className="hidden md:block py-2">
-              <AppointmentStatusStepper status={appt.status} />
+              <AppointmentStatusStepper status={appt.status} paymentStatus={appt.paymentStatus} />
             </div>
           </div>
 

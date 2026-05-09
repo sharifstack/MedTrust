@@ -6,17 +6,32 @@ import { useRouter } from 'next/navigation';
 import { MdVideoCall, MdCalendarToday, MdAccessTime, MdCheckCircle } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
 
-export default function BookAppointmentForm({ doctorId }: { doctorId: string }) {
+export default function BookAppointmentForm({ doctorId, doctorName, fee }: { doctorId: string; doctorName: string; fee: number }) {
   const router = useRouter();
   const [date, setDate] = useState('Oct 28, 2023');
   const [time, setTime] = useState('10:00 AM');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleBook = async () => {
+  const handleBookInitiate = async () => {
     setIsSubmitting(true);
-    await bookAppointment(doctorId, date, time, 'General Consultation');
-    setIsSubmitting(false);
-    router.push('/appointments');
+    try {
+      const appointmentId = await bookAppointment(
+        doctorId, 
+        date, 
+        time, 
+        'General Consultation', 
+        undefined, 
+        undefined,
+        'Pending'
+      );
+      
+      if (appointmentId) {
+        router.push(`/checkout/${appointmentId}`);
+      }
+    } catch (error) {
+      console.error('Booking failed:', error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -26,28 +41,28 @@ export default function BookAppointmentForm({ doctorId }: { doctorId: string }) 
         <p className="font-body-md text-on-surface-variant">Select your preferred date and time</p>
       </div>
       
-      <div className="flex flex-col gap-md mb-lg">
-        <div>
-          <label className="font-label-sm font-bold text-on-surface flex items-center gap-1.5 mb-xs">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+        <div className="space-y-xs">
+          <label className="font-label-sm font-bold text-on-surface flex items-center gap-1.5 px-xs">
             <MdCalendarToday size={16} className="text-secondary" />
             Select Date
           </label>
           <input 
             type="text" 
-            className="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm font-body-md focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all" 
+            className="w-full bg-surface-container-low border border-outline-variant rounded-xl px-md py-sm font-body-md focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all placeholder:text-on-surface-variant/40" 
             value={date} 
             onChange={(e) => setDate(e.target.value)} 
             placeholder="e.g. Oct 28, 2023"
           />
         </div>
-        <div>
-          <label className="font-label-sm font-bold text-on-surface flex items-center gap-1.5 mb-xs">
+        <div className="space-y-xs">
+          <label className="font-label-sm font-bold text-on-surface flex items-center gap-1.5 px-xs">
             <MdAccessTime size={16} className="text-secondary" />
             Select Time
           </label>
           <input 
             type="text" 
-            className="w-full bg-surface-container-low border border-outline-variant rounded-lg px-md py-sm font-body-md focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all" 
+            className="w-full bg-surface-container-low border border-outline-variant rounded-xl px-md py-sm font-body-md focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all placeholder:text-on-surface-variant/40" 
             value={time} 
             onChange={(e) => setTime(e.target.value)} 
             placeholder="e.g. 10:00 AM"
@@ -55,25 +70,29 @@ export default function BookAppointmentForm({ doctorId }: { doctorId: string }) 
         </div>
       </div>
       
-      <div className="flex items-center justify-between border-t border-outline-variant/30 pt-lg">
-        <div className="flex items-center gap-md">
-          <div className="p-sm bg-secondary/10 rounded-lg">
-            <MdVideoCall size={22} className="text-secondary" />
+      <div className="space-y-lg">
+        <div className="flex items-center gap-md bg-surface-container-low/50 p-md rounded-xl border border-outline-variant/20">
+          <div className="p-sm bg-secondary/10 rounded-lg text-secondary shadow-sm">
+            <MdVideoCall size={24} />
           </div>
           <div>
-            <p className="font-label-sm font-bold text-on-surface">Virtual or In-Person</p>
+            <p className="font-label-md font-bold text-on-surface">Virtual or In-Person</p>
             <p className="font-caption text-on-surface-variant">Eligible for insurance coverage</p>
           </div>
         </div>
+
         <button 
-          onClick={handleBook}
+          onClick={handleBookInitiate}
           disabled={isSubmitting}
-          className="flex items-center gap-2 bg-secondary text-white px-xl py-md rounded-xl font-body-md font-bold hover:opacity-90 transition-all active:scale-95 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full flex items-center justify-center gap-3 bg-secondary text-white px-xl py-lg rounded-2xl font-body-md font-bold hover:opacity-95 hover:shadow-lg transition-all active:scale-[0.98] shadow-md disabled:opacity-50 disabled:cursor-not-allowed group"
         >
           {isSubmitting ? (
-            <><ImSpinner8 size={16} className="animate-spin" /> Booking…</>
+            <><ImSpinner8 size={20} className="animate-spin" /> Initiating Booking…</>
           ) : (
-            <><MdCheckCircle size={18} /> Confirm Booking</>
+            <>
+              <MdCheckCircle size={22} className="group-hover:scale-110 transition-transform" /> 
+              Confirm & Pay Booking
+            </>
           )}
         </button>
       </div>

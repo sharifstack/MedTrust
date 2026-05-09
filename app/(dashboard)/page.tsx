@@ -1,6 +1,7 @@
 import { getUser, getAppointments, getDoctors } from '@/lib/actions';
 import Link from 'next/link';
 import MessageDoctorButton from '@/components/MessageDoctorButton';
+import DynamicGreeting from '@/components/DynamicGreeting';
 import { 
   MdEvent, 
   MdSchedule, 
@@ -27,7 +28,7 @@ export default async function Page() {
 <main className="pt-24 pb-20 px-md md:px-lg max-w-container-max mx-auto">
 {/*  Welcoming Header  */}
 <section className="mb-xl">
-<h1 className="font-h1 text-h1 text-primary">Good Morning, {user.name}</h1>
+<DynamicGreeting userName={user.name} />
 <p className="font-body-lg text-body-lg text-on-surface-variant mt-xs">Here is your health summary for today.</p>
 </section>
 {/*  Quick Actions Grid  */}

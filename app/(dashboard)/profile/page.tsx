@@ -1,11 +1,13 @@
-import { getUser, getVitalsHistory } from '@/lib/actions';
+import { getUser, getVitalsHistory, getPayments } from '@/lib/actions';
 import EditProfileModal from '@/components/EditProfileModal';
 import VitalsDashboard from '@/components/VitalsDashboard';
 import ProfileCard from '@/components/ProfileCard';
+import PaymentHistory from '@/components/PaymentHistory';
 
 export default async function Page() {
   const user = await getUser();
   const history = await getVitalsHistory();
+  const payments = await getPayments();
 
   return (
     <main className="pt-[80px] pb-[100px] px-md md:px-lg max-w-container-max mx-auto">
@@ -36,6 +38,8 @@ export default async function Page() {
         {/* Vitals and Settings */}
         <div className="md:col-span-2 flex flex-col gap-lg">
           <VitalsDashboard user={user} history={history} />
+
+          <PaymentHistory payments={payments} />
 
           <div className="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_4px_20px_rgba(30,41,59,0.05)] border border-outline-variant/30">
             <h3 className="font-h3 text-h3 text-primary mb-md">Settings</h3>

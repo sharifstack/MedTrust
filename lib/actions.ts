@@ -72,23 +72,55 @@ export async function rescheduleAppointment(id: string, date: string, time: stri
   }
 }
 
-export async function bookAppointment(doctorId: string, date: string, time: string, type: string = 'General Consultation', location?: string, notes?: string) {
+export async function bookAppointment(
+  doctorId: string, 
+  date: string, 
+  time: string, 
+  type: string = 'General Consultation', 
+  location?: string, 
+  notes?: string,
+  paymentStatus: string = 'Pending',
+  transactionId?: string
+) {
   const db = getDb();
+  const appointmentId = `a${Date.now()}`;
+  
   const newAppointment = {
-    id: `a${Date.now()}`,
+    id: appointmentId,
     doctorId,
     date,
     time,
     status: 'Pending',
     type,
     location,
-    notes
+    notes,
+    paymentStatus,
+    transactionId
   };
+  
   db.appointments.push(newAppointment);
+
+  // If payment is made, add to payments history
+  if (paymentStatus === 'Paid' && transactionId) {
+    if (!db.payments) db.payments = [];
+    db.payments.push({
+      id: `p${Date.now()}`,
+      appointmentId: appointmentId,
+      userId: db.user.id,
+      amount: db.doctors.find((d: any) => d.id === doctorId)?.fee || 150,
+      method: 'Online', // Could be more specific if passed
+      status: 'Success',
+      transactionId: transactionId,
+      date: new Date().toISOString()
+    });
+  }
+
   saveDb(db);
   revalidatePath('/');
   revalidatePath('/appointments');
   revalidatePath(`/doctor/${doctorId}`);
+  
+  return appointmentId;
 }
 
 export async function cancelAppointment(id: string) {
@@ -237,4 +269,51 @@ export async function resetPassword(newPassword: string) {
     db.user.password = newPassword;
     saveDb(db);
   }
+}
+
+export async function getPayments() {
+  const db = getDb();
+  return db.payments || [];
+}
+
+export async function getAppointment(id: string) {
+  const db = getDb();
+  return db.appointments.find((a: any) => a.id === id);
+}
+
+export async function completePayment(
+  appointmentId: string, 
+  transactionId: string, 
+  method: string,
+  amount: number
+) {
+  const db = getDb();
+  const index = db.appointments.findIndex((a: any) => a.id === appointmentId);
+  
+  if (index !== -1) {
+    db.appointments[index].paymentStatus = 'Paid';
+    db.appointments[index].transactionId = transactionId;
+    
+    if (!db.payments) db.payments = [];
+    db.payments.push({
+      id: `p${Date.now()}`,
+      appointmentId: appointmentId,
+      userId: db.user.id,
+      amount: amount,
+      method: method,
+      status: 'Success',
+      transactionId: transactionId,
+      date: new Date().toISOString()
+    });
+    
+    saveDb(db);
+    revalidatePath('/');
+    revalidatePath('/appointments');
+    revalidatePath('/payments');
+    revalidatePath(`/checkout/${appointmentId}`);
+    
+    return { success: true };
+  }
+  
+  return { success: false, error: 'Appointment not found' };
 }

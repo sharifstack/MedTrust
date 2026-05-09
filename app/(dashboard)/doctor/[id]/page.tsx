@@ -111,7 +111,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         {/* Right Column: Booking & Details */}
         <div className="lg:col-span-8 flex flex-col gap-lg">
           {/* Appointment Booking Sidebar/Top Card */}
-          <BookAppointmentForm doctorId={doctor.id} />
+          <BookAppointmentForm doctorId={doctor.id} doctorName={doctor.name} fee={doctor.fee || 150} />
 
           {/* Stats Bento Grid Header */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">

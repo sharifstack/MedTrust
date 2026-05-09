@@ -21,6 +21,78 @@
       "category": "Updates"
     }
   ],
+  "payments": [
+    {
+      "id": "p1",
+      "appointmentId": "a1",
+      "userId": "u1",
+      "amount": 1500,
+      "method": "bKash",
+      "status": "Success",
+      "transactionId": "BK78239012",
+      "date": "2024-05-09T09:00:00Z"
+    },
+    {
+      "id": "p1778350317395",
+      "appointmentId": "a1778350297810",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRXSI2VIU6TG",
+      "date": "2026-05-09T18:11:57.395Z"
+    },
+    {
+      "id": "p1778350382558",
+      "appointmentId": "a1778350364335",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRXSK454AZO4",
+      "date": "2026-05-09T18:13:02.558Z"
+    },
+    {
+      "id": "p1778350431001",
+      "appointmentId": "a1778350412231",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRX3VHJ6ZGYR",
+      "date": "2026-05-09T18:13:51.001Z"
+    },
+    {
+      "id": "p1778350487371",
+      "appointmentId": "a1778350469032",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRX3URSJOLKU",
+      "date": "2026-05-09T18:14:47.371Z"
+    },
+    {
+      "id": "p1778350556601",
+      "appointmentId": "a1778350538195",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRXMQW9VH09T",
+      "date": "2026-05-09T18:15:56.601Z"
+    },
+    {
+      "id": "p1778350589684",
+      "appointmentId": "a1778350585283",
+      "userId": "u1",
+      "amount": 150,
+      "method": "bank",
+      "status": "Success",
+      "transactionId": "TRX0OOEGAMX5",
+      "date": "2026-05-09T18:16:29.684Z"
+    }
+  ],
   "user": {
     "id": "u1",
     "name": "alex",
@@ -388,13 +460,13 @@
   "appointments": [
     {
       "id": "a1",
-      "doctorId": "d4",
-      "date": "Oct 12, 2023",
-      "time": "09:30 AM",
+      "doctorId": "d3",
+      "date": "Nov 15, 2023",
+      "time": "4:00 PM",
       "status": "Completed",
-      "type": "General Checkup",
-      "location": "MedTrust Central Clinic, Room 402",
-      "notes": "Routine annual checkup."
+      "type": "Health Checkup",
+      "paymentStatus": "Paid",
+      "transactionId": "TXN9823412"
     },
     {
       "id": "a2",
@@ -404,7 +476,8 @@
       "status": "Cancelled",
       "type": "Dermatology",
       "location": "Skin & Laser Center, Suite 10",
-      "notes": "Follow-up on skin rash."
+      "notes": "Follow-up on skin rash.",
+      "paymentStatus": "Pending"
     },
     {
       "id": "a1778170828797",
@@ -412,7 +485,8 @@
       "date": "Oct 30",
       "time": "11:00 AM",
       "status": "Pending",
-      "type": "Dermatology"
+      "type": "Dermatology",
+      "paymentStatus": "Pending"
     },
     {
       "id": "a1778170889963",
@@ -420,7 +494,8 @@
       "date": "Nov 1",
       "time": "2:00 PM",
       "status": "Pending",
-      "type": "General Checkup"
+      "type": "General Checkup",
+      "paymentStatus": "Pending"
     },
     {
       "id": "a1778346529979",
@@ -428,7 +503,86 @@
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
       "status": "Pending",
-      "type": "General Consultation"
+      "type": "General Consultation",
+      "paymentStatus": "Pending"
+    },
+    {
+      "id": "a1778350297810",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRXSI2VIU6TG"
+    },
+    {
+      "id": "a1778350364335",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023Oct 29, 2023",
+      "time": "10:00 AM11:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRXSK454AZO4"
+    },
+    {
+      "id": "a1778350412231",
+      "doctorId": "d1",
+      "date": "Nov 01, 2023",
+      "time": "09:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRX3VHJ6ZGYR"
+    },
+    {
+      "id": "a1778350469032",
+      "doctorId": "d1",
+      "date": "Nov 05, 2023",
+      "time": "02:00 PM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRX3URSJOLKU"
+    },
+    {
+      "id": "a1778350538195",
+      "doctorId": "d1",
+      "date": "Dec 25, 2023",
+      "time": "10:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRXMQW9VH09T"
+    },
+    {
+      "id": "a1778350585283",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRX0OOEGAMX5"
+    },
+    {
+      "id": "a1778350772656",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Pending"
+    },
+    {
+      "id": "a1778350852721",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Pending",
+      "type": "General Consultation",
+      "paymentStatus": "Pending"
     }
   ]
 }

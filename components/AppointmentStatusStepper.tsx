@@ -4,12 +4,15 @@ import { MdCheckCircle, MdCircle, MdError } from 'react-icons/md';
 
 interface StepperProps {
   status: 'Upcoming' | 'Pending' | 'Completed' | 'Cancelled';
+  paymentStatus?: string;
 }
 
-export default function AppointmentStatusStepper({ status }: StepperProps) {
+export default function AppointmentStatusStepper({ status, paymentStatus }: StepperProps) {
+  const isPaid = paymentStatus === 'Paid';
+  
   const steps = [
     { label: 'Booked', active: true },
-    { label: 'Confirmed', active: status !== 'Pending' && status !== 'Cancelled' },
+    { label: 'Confirmed', active: isPaid && status !== 'Cancelled' },
     { label: 'Consultation', active: status === 'Completed' },
     { label: 'Completed', active: status === 'Completed' },
   ];
