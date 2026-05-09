@@ -86,7 +86,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -96,7 +96,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={onClose} />
 
           {/* Search Modal */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -106,7 +106,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
             {/* Input Header */}
             <div className="flex items-center p-4 border-b border-outline-variant/30 bg-surface">
               <MdSearch size={28} className="text-primary ml-2 mr-3" />
-              <input 
+              <input
                 ref={inputRef}
                 type="text"
                 value={query}
@@ -117,7 +117,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
               {isSearching && (
                 <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin mr-3" />
               )}
-              <button 
+              <button
                 onClick={onClose}
                 className="p-2 bg-surface-container-high hover:bg-error/10 hover:text-error text-on-surface-variant rounded-full transition-colors ml-2"
               >
@@ -144,7 +144,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {['Flu symptoms', 'Book appointment', 'Dermatology', 'Edit Profile'].map(t => (
-                        <button 
+                        <button
                           key={t}
                           onClick={() => setQuery(t)}
                           className="px-3 py-1.5 bg-primary/10 text-primary text-xs font-medium rounded-full hover:bg-primary/20 transition-colors"
@@ -159,7 +159,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
                 <div className="space-y-2">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-3 pl-2">AI Suggestions</h4>
                   {results.map((result, i) => (
-                    <button 
+                    <button
                       key={i}
                       onClick={() => handleSelect(result.url)}
                       className="w-full flex items-center gap-4 p-3 rounded-xl hover:bg-surface-container transition-all group text-left"
@@ -196,9 +196,7 @@ export default function GlobalSearch({ isOpen, onClose }: Props) {
                 <span className="flex items-center gap-1"><kbd className="px-1.5 py-0.5 bg-surface rounded border border-outline-variant shadow-sm font-mono font-bold text-[10px]">esc</kbd> to close</span>
                 <span className="flex items-center gap-1"><kbd className="px-1.5 py-0.5 bg-surface rounded border border-outline-variant shadow-sm font-mono font-bold text-[10px]">↵</kbd> to select</span>
               </div>
-              <div className="font-medium bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                AI-Powered Search
-              </div>
+
             </div>
           </motion.div>
         </motion.div>

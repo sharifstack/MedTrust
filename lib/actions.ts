@@ -37,6 +37,13 @@ export async function getDoctor(id: string) {
   return getDb().doctors.find((d: any) => d.id === id);
 }
 
+export async function getRelatedDoctors(specialty: string, currentDoctorId: string) {
+  const db = getDb();
+  return db.doctors
+    .filter((d: any) => d.specialty === specialty && d.id !== currentDoctorId)
+    .slice(0, 3);
+}
+
 export async function updateDoctor(id: string, doctorData: any) {
   const db = getDb();
   const index = db.doctors.findIndex((d: any) => d.id === id);
@@ -222,4 +229,12 @@ export async function markAllNotificationsAsRead() {
     n.read = true;
   });
   saveDb(db);
+}
+
+export async function resetPassword(newPassword: string) {
+  const db = getDb();
+  if (db.user) {
+    db.user.password = newPassword;
+    saveDb(db);
+  }
 }

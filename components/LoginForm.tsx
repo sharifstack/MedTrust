@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { login } from '@/lib/actions';
+import Link from 'next/link';
 import { MdEmail, MdLock, MdVisibility, MdVisibilityOff, MdLogin, MdError } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
 
@@ -61,9 +62,9 @@ export default function LoginForm() {
           <label htmlFor="password" className="text-sm font-semibold text-on-surface">
             Password
           </label>
-          <button type="button" className="text-xs text-secondary hover:underline">
+          <Link href="/forgot-password" className="text-xs text-secondary hover:underline">
             Forgot password?
-          </button>
+          </Link>
         </div>
         <div className="relative">
           <MdLock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" />

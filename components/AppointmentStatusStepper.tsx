@@ -24,7 +24,7 @@ export default function AppointmentStatusStepper({ status }: StepperProps) {
   }
 
   return (
-    <div className="flex items-center w-full max-w-md">
+    <div className="flex items-center w-full  max-w-md">
       {steps.map((step, index) => (
         <div key={step.label} className="flex items-center flex-1 last:flex-none">
           <div className="flex flex-col items-center relative">
