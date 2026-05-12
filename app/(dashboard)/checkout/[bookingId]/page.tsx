@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getAppointment, getDoctor, completePayment } from '@/lib/actions';
+import { toast } from 'react-toastify';
 import { 
   MdCheckCircle, 
   MdError, 
@@ -74,14 +75,17 @@ export default function CheckoutPage() {
 
       if (result.success) {
         setStep('success');
+        toast.success('Payment completed successfully!');
         setTimeout(() => {
           router.push('/appointments');
         }, 3000);
       } else {
         setStep('failed');
+        toast.error('Payment failed. Please try again.');
       }
     } catch (error) {
       setStep('failed');
+      toast.error('An error occurred during payment processing.');
     } finally {
       setIsProcessing(false);
     }

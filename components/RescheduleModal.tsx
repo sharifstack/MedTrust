@@ -6,6 +6,8 @@ import { rescheduleAppointment } from '@/lib/actions';
 import { MdEditCalendar, MdClose, MdSave, MdCalendarToday, MdAccessTime } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
 
+import { toast } from 'react-toastify';
+
 export default function RescheduleModal({ appointment }: { appointment: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -20,9 +22,16 @@ export default function RescheduleModal({ appointment }: { appointment: any }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
-    await rescheduleAppointment(appointment.id, date, time);
-    setIsSaving(false);
-    setIsOpen(false);
+    try {
+      await rescheduleAppointment(appointment.id, date, time);
+      toast.success('Appointment rescheduled successfully');
+      setIsOpen(false);
+    } catch (error) {
+      console.error('Failed to reschedule', error);
+      toast.error('Failed to reschedule appointment');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const modalContent = isOpen ? (

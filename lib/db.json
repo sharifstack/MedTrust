@@ -493,7 +493,7 @@
       "doctorId": "d4",
       "date": "Nov 1",
       "time": "2:00 PM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Checkup",
       "paymentStatus": "Pending"
     },
@@ -502,7 +502,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Pending"
     },
@@ -511,7 +511,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRXSI2VIU6TG"
@@ -521,7 +521,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023Oct 29, 2023",
       "time": "10:00 AM11:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRXSK454AZO4"
@@ -561,7 +561,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRX0OOEGAMX5"

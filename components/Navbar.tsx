@@ -22,6 +22,7 @@ import { useUser } from '@/components/UserProvider';
 import { useNotifications } from '@/components/NotificationProvider';
 import NotificationDropdown from '@/components/NotificationDropdown';
 import GlobalSearch from '@/components/GlobalSearch';
+import { toast } from 'react-toastify';
 
 const navLinks = [
   { href: '/', label: 'Dashboard', icon: <MdDashboard size={20} /> },
@@ -200,7 +201,7 @@ export default function Navbar() {
 
                       {/* Sign out */}
                       <button
-                        onClick={() => { setIsProfileOpen(false); logout(); }}
+                        onClick={() => { setIsProfileOpen(false); toast.info('Logged out successfully'); logout(); }}
                         className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors text-sm font-medium hover:bg-red-50"
                         style={{ color: '#6b7280' }}
                         onMouseEnter={(e) => { e.currentTarget.style.color = '#dc2626'; }}
@@ -218,9 +219,24 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
-            <button className="p-2 text-on-surface-variant">
-              <MdNotifications size={24} />
-            </button>
+            <div className="relative">
+              <button 
+                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                className="p-2 text-on-surface-variant relative"
+              >
+                <MdNotifications size={24} />
+                {unreadCount > 0 && (
+                  <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-white text-[9px] font-bold rounded-full flex items-center justify-center border-2 border-white dark:border-slate-900">
+                    {unreadCount}
+                  </span>
+                )}
+              </button>
+              
+              <NotificationDropdown 
+                isOpen={isNotificationsOpen} 
+                onClose={() => setIsNotificationsOpen(false)} 
+              />
+            </div>
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
               className="p-2 bg-surface-container rounded-lg text-primary"

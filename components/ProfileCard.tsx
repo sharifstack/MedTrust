@@ -5,6 +5,7 @@ import { useUser } from './UserProvider';
 import { updateUser } from '@/lib/actions';
 import { MdCameraAlt } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
+import { toast } from 'react-toastify';
 
 export default function ProfileCard() {
   const { user, setUser } = useUser();
@@ -21,7 +22,7 @@ export default function ProfileCard() {
 
     // Check if the file is an image
     if (!file.type.startsWith('image/')) {
-      alert('Please select an image file.');
+      toast.error('Please select an image file.');
       return;
     }
 
@@ -40,16 +41,18 @@ export default function ProfileCard() {
         await updateUser({ avatar: base64Image });
         
         setIsUploading(false);
+        toast.success('Profile picture updated successfully');
       };
       
       reader.onerror = () => {
-        alert('Error reading file.');
+        toast.error('Error reading file.');
         setIsUploading(false);
       };
 
       reader.readAsDataURL(file);
     } catch (error) {
       console.error('Error uploading image:', error);
+      toast.error('Failed to update profile picture');
       setIsUploading(false);
     }
   };

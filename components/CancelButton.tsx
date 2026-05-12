@@ -5,6 +5,7 @@ import { cancelAppointment } from '@/lib/actions';
 import { MdCancelScheduleSend } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 interface CancelButtonProps {
   appointmentId: string;
@@ -28,6 +29,7 @@ export default function CancelButton({ appointmentId, onCancelSuccess }: CancelB
         }
       } catch (error) {
         console.error('Failed to cancel appointment', error);
+        toast.error('Failed to cancel appointment');
       } finally {
         setIsCancelling(false);
       }

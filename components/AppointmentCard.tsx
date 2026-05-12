@@ -7,7 +7,7 @@ import AppointmentStatusStepper from './AppointmentStatusStepper';
 import RescheduleModal from './RescheduleModal';
 import CancelButton from './CancelButton';
 import BookAgainModal from './BookAgainModal';
-import Toast, { ToastType } from './Toast';
+import { toast } from 'react-toastify';
 import { changeDoctor } from '@/lib/actions';
 import Link from 'next/link';
 
@@ -18,17 +18,12 @@ interface AppointmentCardProps {
 
 export default function AppointmentCard({ appt, allDoctors }: AppointmentCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [toast, setToast] = useState<{ message: string, type: ToastType } | null>(null);
   
   const isActive = appt.status === 'Upcoming' || appt.status === 'Pending';
   const isCompleted = appt.status === 'Completed';
   const isCancelled = appt.status === 'Cancelled';
 
   const [month, day] = appt.date.split(' ');
-
-  const showToast = (message: string, type: ToastType = 'success') => {
-    setToast({ message, type });
-  };
 
   return (
     <motion.div 
@@ -98,12 +93,12 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
                     <RescheduleModal appointment={appt} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <CancelButton appointmentId={appt.id} onCancelSuccess={() => showToast('Appointment cancelled successfully', 'success')} />
+                    <CancelButton appointmentId={appt.id} onCancelSuccess={() => toast.success('Appointment cancelled successfully')} />
                   </div>
                 </div>
               </>
             ) : (
-              <BookAgainModal appt={appt} onSuccess={showToast} />
+              <BookAgainModal appt={appt} onSuccess={(msg: string, type: string) => type === 'error' ? toast.error(msg) : toast.success(msg)} />
             )}
             {isCompleted && (
               <button className="flex items-center justify-center gap-2 px-md py-sm bg-surface-container border border-outline-variant text-primary rounded-xl font-label-sm font-bold hover:bg-surface-container-low transition-all">
@@ -160,10 +155,6 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
           )}
         </AnimatePresence>
       </div>
-
-      {toast && (
-        <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
-      )}
     </motion.div>
   );
 }

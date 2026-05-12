@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { MdClose, MdEvent, MdAccessTime, MdLocationOn, MdDescription, MdCheckCircle } from 'react-icons/md';
 import { ImSpinner8 } from 'react-icons/im';
 import { bookAppointment } from '@/lib/actions';
+import { toast } from 'react-toastify';
 
 interface BookAgainModalProps {
   appt: any;
@@ -36,6 +37,7 @@ export default function BookAgainModal({ appt, onSuccess }: BookAgainModalProps)
       onSuccess(`Successfully re-booked with Dr. ${appt.doctor?.name} for ${date} at ${time}!`);
     } catch (error) {
       console.error(error);
+      toast.error('Failed to book appointment');
     } finally {
       setIsSaving(false);
     }
