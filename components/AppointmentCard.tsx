@@ -87,15 +87,19 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
           </div>
 
           {/* Right: Quick Actions */}
-          <div className="flex flex-col gap-sm w-full md:w-48">
+          <div className="flex flex-col gap-sm w-full md:w-[260px] shrink-0">
             {isActive ? (
               <>
                 <button className="flex items-center justify-center gap-2 px-md py-sm bg-secondary text-white rounded-xl font-label-sm font-bold shadow-sm hover:opacity-90 transition-all">
                   <MdVideoCall size={20} /> Join Visit
                 </button>
-                <div className="grid grid-cols-2 gap-sm">
-                  <RescheduleModal appointment={appt} />
-                  <CancelButton appointmentId={appt.id} />
+                <div className="flex flex-row gap-2">
+                  <div className="flex-1 min-w-0">
+                    <RescheduleModal appointment={appt} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <CancelButton appointmentId={appt.id} onCancelSuccess={() => showToast('Appointment cancelled successfully', 'success')} />
+                  </div>
                 </div>
               </>
             ) : (

@@ -571,7 +571,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Pending"
     },
@@ -580,7 +580,7 @@
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Pending"
     }

@@ -13,10 +13,11 @@ export default function MessageDoctorButton() {
     <>
       <button
         onClick={() => setIsChatOpen(true)}
-        className="flex items-center justify-center space-x-md bg-surface-container-lowest border border-outline-variant text-primary px-lg py-xl rounded-xl shadow-[0px_4px_20px_rgba(30,41,59,0.05)] hover:bg-surface-container-low transition-all active:scale-95 group w-full"
+        className="flex items-center gap-2 bg-white border border-slate-300 text-slate-700 hover:text-blue-600 hover:border-blue-400 px-5 py-2.5 rounded-xl text-sm font-semibold shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 active:scale-95 whitespace-nowrap relative overflow-hidden group"
       >
-        <MdChatBubble size={28} className="text-secondary" />
-        <span className="font-h3 text-h3">Message Doctor</span>
+        <div className="absolute inset-0 bg-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <MdChatBubble size={18} className="text-blue-500 shrink-0 relative z-10" />
+        <span className="relative z-10">Message Doctor</span>
       </button>
 
       <MedicalChatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
