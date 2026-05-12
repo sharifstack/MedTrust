@@ -54,7 +54,7 @@ export default function Navbar() {
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'py-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-slate-200/50 dark:border-slate-800/50' 
+            ? 'py-2.5 bg-white/85 backdrop-blur-lg shadow-sm border-b border-outline-variant/30' 
             : 'py-4 bg-transparent'
         }`}
       >
@@ -116,7 +116,7 @@ export default function Navbar() {
               >
                 <MdNotifications size={24} />
                 {unreadCount > 0 && (
-                  <span className="absolute top-1.5 right-1.5 w-5 h-5 bg-error text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white dark:border-slate-900">
+                  <span className="absolute top-1.5 right-1.5 w-5 h-5 bg-error text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">
                     {unreadCount}
                   </span>
                 )}
