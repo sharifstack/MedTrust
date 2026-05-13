@@ -1,4 +1,256 @@
 {
+  "results": [
+    {
+      "id": "r1",
+      "testName": "Full Blood Count",
+      "category": "Blood",
+      "date": "2023-10-05",
+      "doctorName": "Dr. Julian Sterling",
+      "labName": "MedTrust Central Lab",
+      "status": "Stable",
+      "summary": "All blood cell counts within normal reference ranges. No signs of anemia or infection.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "WBC",
+          "value": "6.2",
+          "unit": "×10³/μL",
+          "normalRange": "4.5 – 11.0",
+          "isAbnormal": false
+        },
+        {
+          "name": "RBC",
+          "value": "4.7",
+          "unit": "×10⁶/μL",
+          "normalRange": "4.2 – 5.4",
+          "isAbnormal": false
+        },
+        {
+          "name": "Hemoglobin",
+          "value": "14.1",
+          "unit": "g/dL",
+          "normalRange": "12.0 – 16.0",
+          "isAbnormal": false
+        },
+        {
+          "name": "Hematocrit",
+          "value": "42",
+          "unit": "%",
+          "normalRange": "36 – 46",
+          "isAbnormal": false
+        },
+        {
+          "name": "Platelets",
+          "value": "220",
+          "unit": "×10³/μL",
+          "normalRange": "150 – 400",
+          "isAbnormal": false
+        }
+      ],
+      "notes": "Results are completely normal. Patient is in good haematological health.",
+      "recommendations": "No action required. Continue regular monitoring every 12 months.",
+      "followUp": false
+    },
+    {
+      "id": "r2",
+      "testName": "Cholesterol Panel",
+      "category": "Lipid",
+      "date": "2023-09-28",
+      "doctorName": "Dr. Elena Rodriguez",
+      "labName": "City Diagnostics",
+      "status": "Optimal",
+      "summary": "Lipid profile is excellent. HDL is high, LDL is well within range.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "Total Cholesterol",
+          "value": "172",
+          "unit": "mg/dL",
+          "normalRange": "< 200",
+          "isAbnormal": false
+        },
+        {
+          "name": "HDL",
+          "value": "62",
+          "unit": "mg/dL",
+          "normalRange": "> 40",
+          "isAbnormal": false
+        },
+        {
+          "name": "LDL",
+          "value": "95",
+          "unit": "mg/dL",
+          "normalRange": "< 100",
+          "isAbnormal": false
+        },
+        {
+          "name": "Triglycerides",
+          "value": "88",
+          "unit": "mg/dL",
+          "normalRange": "< 150",
+          "isAbnormal": false
+        }
+      ],
+      "notes": "Excellent cardiovascular lipid profile. HDL is protectively high.",
+      "recommendations": "Maintain current diet and exercise routine. Follow-up in 12 months.",
+      "followUp": false
+    },
+    {
+      "id": "r3",
+      "testName": "Chest X-Ray",
+      "category": "Imaging",
+      "date": "2023-09-15",
+      "doctorName": "Dr. Julian Sterling",
+      "labName": "Radiology Dept., City Hospital",
+      "status": "Reviewed",
+      "summary": "No acute cardiopulmonary process identified. Heart size and mediastinum are within normal limits.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "Lung Fields",
+          "value": "Clear",
+          "unit": "",
+          "normalRange": "Clear",
+          "isAbnormal": false
+        },
+        {
+          "name": "Heart Size",
+          "value": "Normal",
+          "unit": "",
+          "normalRange": "Normal",
+          "isAbnormal": false
+        },
+        {
+          "name": "Pleural Space",
+          "value": "No effusion",
+          "unit": "",
+          "normalRange": "No effusion",
+          "isAbnormal": false
+        }
+      ],
+      "notes": "Radiograph reviewed and findings discussed with patient. No intervention required.",
+      "recommendations": "Routine follow-up in 2 years or earlier if symptoms develop.",
+      "followUp": false
+    },
+    {
+      "id": "r4",
+      "testName": "HbA1c (Glycated Haemoglobin)",
+      "category": "Blood",
+      "date": "2023-08-20",
+      "doctorName": "Dr. Marcus Chen",
+      "labName": "MedTrust Central Lab",
+      "status": "Abnormal",
+      "summary": "HbA1c is slightly elevated above the pre-diabetic threshold. Lifestyle modification advised.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "HbA1c",
+          "value": "6.4",
+          "unit": "%",
+          "normalRange": "< 5.7 (normal), 5.7–6.4 (pre-diabetic)",
+          "isAbnormal": true
+        },
+        {
+          "name": "Estimated Avg Glucose",
+          "value": "137",
+          "unit": "mg/dL",
+          "normalRange": "< 117",
+          "isAbnormal": true
+        }
+      ],
+      "notes": "Patient is in the pre-diabetic range. Early intervention is key to prevent progression.",
+      "recommendations": "Reduce refined carbohydrate intake, increase aerobic exercise to 150 min/week, retest in 3 months.",
+      "followUp": true
+    },
+    {
+      "id": "r5",
+      "testName": "Thyroid Function Panel",
+      "category": "Hormones",
+      "date": "2023-07-10",
+      "doctorName": "Dr. Elena Rodriguez",
+      "labName": "City Diagnostics",
+      "status": "Stable",
+      "summary": "TSH and Free T4 levels are within normal reference ranges indicating normal thyroid function.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "TSH",
+          "value": "2.1",
+          "unit": "mIU/L",
+          "normalRange": "0.4 – 4.0",
+          "isAbnormal": false
+        },
+        {
+          "name": "Free T4",
+          "value": "1.1",
+          "unit": "ng/dL",
+          "normalRange": "0.8 – 1.8",
+          "isAbnormal": false
+        },
+        {
+          "name": "Free T3",
+          "value": "3.2",
+          "unit": "pg/mL",
+          "normalRange": "2.3 – 4.1",
+          "isAbnormal": false
+        }
+      ],
+      "notes": "Thyroid function is completely normal. No signs of hypo- or hyperthyroidism.",
+      "recommendations": "No medication or follow-up required. Retest annually.",
+      "followUp": false
+    },
+    {
+      "id": "r6",
+      "testName": "Urine Analysis",
+      "category": "Urology",
+      "date": "2023-06-05",
+      "doctorName": "Dr. Julian Sterling",
+      "labName": "MedTrust Central Lab",
+      "status": "Critical",
+      "summary": "Significant protein and blood found in urine. Immediate nephrology referral recommended.",
+      "reportUrl": "#",
+      "values": [
+        {
+          "name": "Protein",
+          "value": "+++",
+          "unit": "",
+          "normalRange": "Negative",
+          "isAbnormal": true
+        },
+        {
+          "name": "Blood (Hematuria)",
+          "value": "++",
+          "unit": "",
+          "normalRange": "Negative",
+          "isAbnormal": true
+        },
+        {
+          "name": "pH",
+          "value": "6.0",
+          "unit": "",
+          "normalRange": "4.5 – 8.0",
+          "isAbnormal": false
+        },
+        {
+          "name": "Specific Gravity",
+          "value": "1.025",
+          "unit": "",
+          "normalRange": "1.005 – 1.030",
+          "isAbnormal": false
+        },
+        {
+          "name": "Glucose",
+          "value": "Negative",
+          "unit": "",
+          "normalRange": "Negative",
+          "isAbnormal": false
+        }
+      ],
+      "notes": "Critically elevated protein and RBCs in urine. This warrants urgent investigation for glomerulonephritis or other renal pathology.",
+      "recommendations": "Urgent referral to nephrology. Repeat urine cultures. Kidney ultrasound recommended.",
+      "followUp": true
+    }
+  ],
   "notifications": [
     {
       "id": "n1",
@@ -91,6 +343,46 @@
       "status": "Success",
       "transactionId": "TRX0OOEGAMX5",
       "date": "2026-05-09T18:16:29.684Z"
+    },
+    {
+      "id": "p1778684785182",
+      "appointmentId": "a1778684773370",
+      "userId": "u1",
+      "amount": 150,
+      "method": "nagad",
+      "status": "Success",
+      "transactionId": "TRX787P13UYP",
+      "date": "2026-05-13T15:06:25.182Z"
+    },
+    {
+      "id": "p1778684976292",
+      "appointmentId": "a1778684909422",
+      "userId": "u1",
+      "amount": 150,
+      "method": "nagad",
+      "status": "Success",
+      "transactionId": "TRXXVT3S0FAH",
+      "date": "2026-05-13T15:09:36.292Z"
+    },
+    {
+      "id": "p1778685194051",
+      "appointmentId": "a1778685132064",
+      "userId": "u1",
+      "amount": 200,
+      "method": "bkash",
+      "status": "Success",
+      "transactionId": "TRX9DA7SGY91",
+      "date": "2026-05-13T15:13:14.051Z"
+    },
+    {
+      "id": "p1778685236958",
+      "appointmentId": "a1778685005191",
+      "userId": "u1",
+      "amount": 230,
+      "method": "Offline",
+      "status": "Success",
+      "transactionId": "OFFLINE-1778685236937",
+      "date": "2026-05-13T15:13:56.958Z"
     }
   ],
   "user": {
@@ -484,7 +776,7 @@
       "doctorId": "d2",
       "date": "Oct 30",
       "time": "11:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "Dermatology",
       "paymentStatus": "Pending"
     },
@@ -531,7 +823,7 @@
       "doctorId": "d1",
       "date": "Nov 01, 2023",
       "time": "09:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRX3VHJ6ZGYR"
@@ -541,7 +833,7 @@
       "doctorId": "d1",
       "date": "Nov 05, 2023",
       "time": "02:00 PM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRX3URSJOLKU"
@@ -551,7 +843,7 @@
       "doctorId": "d1",
       "date": "Dec 25, 2023",
       "time": "10:00 AM",
-      "status": "Pending",
+      "status": "Cancelled",
       "type": "General Consultation",
       "paymentStatus": "Paid",
       "transactionId": "TRXMQW9VH09T"
@@ -577,6 +869,64 @@
     },
     {
       "id": "a1778350852721",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Pending"
+    },
+    {
+      "id": "a1778684773370",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRX787P13UYP"
+    },
+    {
+      "id": "a1778684909422",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRXXVT3S0FAH"
+    },
+    {
+      "id": "a1778685005191",
+      "doctorId": "d2",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "OFFLINE-1778685236937"
+    },
+    {
+      "id": "a1778685132064",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Paid",
+      "transactionId": "TRX9DA7SGY91"
+    },
+    {
+      "id": "a1778686295329",
+      "doctorId": "d1",
+      "date": "Oct 28, 2023",
+      "time": "10:00 AM",
+      "status": "Cancelled",
+      "type": "General Consultation",
+      "paymentStatus": "Pending"
+    },
+    {
+      "id": "a1778686691874",
       "doctorId": "d1",
       "date": "Oct 28, 2023",
       "time": "10:00 AM",

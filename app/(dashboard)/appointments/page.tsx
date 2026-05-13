@@ -1,5 +1,6 @@
 import { getAppointments, getDoctors } from '@/lib/actions';
 import AppointmentCard from '@/components/AppointmentCard';
+import UpcomingVisitsClient from '@/components/UpcomingVisitsClient';
 import Link from 'next/link';
 import { MdEventAvailable, MdHistory } from 'react-icons/md';
 
@@ -28,19 +29,10 @@ export default async function Page() {
       </div>
 
       <div className="space-y-xl">
-        {/* Upcoming Section */}
+        {/* Upcoming Section — client component handles multi-select */}
         {upcoming.length > 0 && (
           <section className="space-y-md">
-            <div className="flex items-center gap-2 border-b border-outline-variant/30 pb-sm">
-              <MdEventAvailable className="text-secondary" size={24} />
-              <h2 className="font-h3 text-h3 text-primary">Upcoming Visits</h2>
-              <span className="ml-2 px-2 py-0.5 bg-secondary/10 text-secondary rounded-full text-[10px] font-bold">{upcoming.length}</span>
-            </div>
-            <div className="grid grid-cols-1 gap-md">
-              {upcoming.map((appt: any) => (
-                <AppointmentCard key={appt.id} appt={appt} allDoctors={doctors} />
-              ))}
-            </div>
+            <UpcomingVisitsClient appointments={upcoming} allDoctors={doctors} />
           </section>
         )}
 
@@ -71,4 +63,3 @@ export default async function Page() {
     </main>
   );
 }
-

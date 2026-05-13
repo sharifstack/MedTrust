@@ -1,4 +1,4 @@
-import { getUser, getAppointments, getDoctors } from '@/lib/actions';
+import { getUser, getAppointments, getDoctors, getRecentResults } from '@/lib/actions';
 import Link from 'next/link';
 import MessageDoctorButton from '@/components/MessageDoctorButton';
 import DynamicGreeting from '@/components/DynamicGreeting';
@@ -11,13 +11,15 @@ import {
   MdCheckCircle,
   MdBiotech,
   MdAnalytics,
-  MdOutlineImageSearch
+  MdOutlineImageSearch,
+  MdWarning,
 } from 'react-icons/md';
 
 export default async function Page() {
   const user = await getUser();
   const appointments = await getAppointments();
   const doctors = await getDoctors();
+  const recentResults = await getRecentResults(3);
 
   const upcomingAppointments = appointments.map((appt: any) => ({
     ...appt,
@@ -150,16 +152,21 @@ export default async function Page() {
                           <p className="text-[10px] text-blue-600 font-bold uppercase tracking-widest truncate mr-2">
                             {appt.type}
                           </p>
+
+                        </div>
+
+                        <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-2">
+                            {appt.doctor?.image && (
+                              <img src={appt.doctor.image} alt={appt.doctor.name} className="w-6 h-6 rounded-full object-cover border border-slate-200 shrink-0" />
+                            )}
+                            <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">Dr. {appt.doctor?.name}</h3>
+                          </div>
+
                           <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider shrink-0 border ${isPending ? 'bg-amber-50 text-amber-600 border-amber-200' : isCancelled ? 'bg-rose-50 text-rose-600 border-rose-200' : 'bg-emerald-50 text-emerald-600 border-emerald-200'}`}>
                             {appt.status}
                           </span>
-                        </div>
 
-                        <div className="flex items-center gap-2 mb-1">
-                          {appt.doctor?.image && (
-                            <img src={appt.doctor.image} alt={appt.doctor.name} className="w-6 h-6 rounded-full object-cover border border-slate-200 shrink-0" />
-                          )}
-                          <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">Dr. {appt.doctor?.name}</h3>
                         </div>
 
                         <p className="text-xs text-slate-500 flex items-center font-medium">
@@ -229,51 +236,77 @@ export default async function Page() {
                 <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl"><MdAnalytics size={24} /></div>
                 Recent Results
               </h2>
-              <a className="text-blue-600 text-sm font-bold hover:text-blue-700 hover:underline transition-colors" href="#">All Records</a>
+              <Link className="text-blue-600 text-sm font-bold hover:text-blue-700 hover:underline transition-colors" href="/results">
+                All Records
+              </Link>
             </div>
 
             <div className="flex-1 flex flex-col gap-3 min-w-0">
-              {/*  Result 1  */}
-              <div className="p-4 flex items-center justify-between bg-slate-50 rounded-2xl border border-slate-200/50 hover:shadow-md hover:bg-white hover:border-blue-200 transition-all cursor-pointer group">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="h-12 w-12 bg-blue-100/50 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner shrink-0">
-                    <MdBiotech size={22} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">Full Blood Count</p>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">Oct 05, 2023</p>
-                  </div>
+              {recentResults.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full text-slate-400 py-12">
+                  <MdBiotech size={48} className="opacity-20 mb-4" />
+                  <p className="text-lg">No results yet</p>
                 </div>
-                <div className="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-emerald-200 shrink-0 ml-2">Stable</div>
-              </div>
+              ) : (
+                recentResults.map((result: any) => {
+                  // ── Category icon ──────────────────────────────────────────
+                  const cat = (result.category ?? '').toLowerCase();
+                  const IconEl =
+                    cat === 'blood' ? MdBloodtype :
+                    cat === 'imaging' ? MdOutlineImageSearch :
+                    cat === 'lipid' ? MdAnalytics :
+                    cat === 'hormones' ? MdFavorite :
+                    MdBiotech;
 
-              {/*  Result 2  */}
-              <div className="p-4 flex items-center justify-between bg-slate-50 rounded-2xl border border-slate-200/50 hover:shadow-md hover:bg-white hover:border-blue-200 transition-all cursor-pointer group">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="h-12 w-12 bg-purple-100/50 text-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner shrink-0">
-                    <MdAnalytics size={22} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">Cholesterol Panel</p>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">Sep 28, 2023</p>
-                  </div>
-                </div>
-                <div className="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-emerald-200 shrink-0 ml-2">Optimal</div>
-              </div>
+                  const iconColor =
+                    cat === 'blood' ? 'text-rose-600 bg-rose-50' :
+                    cat === 'imaging' ? 'text-teal-600 bg-teal-50' :
+                    cat === 'lipid' ? 'text-purple-600 bg-purple-50' :
+                    cat === 'hormones' ? 'text-pink-600 bg-pink-50' :
+                    'text-blue-600 bg-blue-50';
 
-              {/*  Result 3  */}
-              <div className="p-4 flex items-center justify-between bg-slate-50 rounded-2xl border border-slate-200/50 hover:shadow-md hover:bg-white hover:border-blue-200 transition-all cursor-pointer group">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="h-12 w-12 bg-teal-100/50 text-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner shrink-0">
-                    <MdOutlineImageSearch size={22} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">Chest X-Ray</p>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">Sep 15, 2023</p>
-                  </div>
-                </div>
-                <div className="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest rounded-lg border border-slate-300 shrink-0 ml-2">Reviewed</div>
-              </div>
+                  // ── Status badge ───────────────────────────────────────────
+                  const s = (result.status ?? '').toLowerCase();
+                  const badgeStyle =
+                    s === 'stable' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' :
+                    s === 'optimal' ? 'bg-blue-50 text-blue-700 border-blue-200' :
+                    s === 'critical' ? 'bg-red-50 text-red-700 border-red-200' :
+                    s === 'abnormal' ? 'bg-orange-50 text-orange-700 border-orange-200' :
+                    s === 'pending' ? 'bg-amber-50 text-amber-700 border-amber-200' :
+                    'bg-slate-100 text-slate-600 border-slate-300'; // reviewed / default
+
+                  const isCritical = s === 'critical' || s === 'abnormal';
+
+                  return (
+                    <Link
+                      key={result.id}
+                      href={`/results/${result.id}`}
+                      className="p-4 flex items-center justify-between bg-slate-50 rounded-2xl border border-slate-200/50 hover:shadow-md hover:bg-white hover:border-blue-200 transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center gap-4 min-w-0">
+                        <div className={`h-12 w-12 ${iconColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner shrink-0`}>
+                          <IconEl size={22} />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors truncate">
+                            {result.testName}
+                          </p>
+                          <p className="text-xs text-slate-500 mt-0.5 font-medium">
+                            {new Date(result.date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
+                          </p>
+                          {result.summary && (
+                            <p className="text-xs text-slate-400 mt-0.5 truncate max-w-[200px]">{result.summary}</p>
+                          )}
+                        </div>
+                      </div>
+                      <div className={`flex items-center gap-1 px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-lg border shrink-0 ml-2 ${badgeStyle}`}>
+                        {isCritical && <MdWarning size={12} />}
+                        {result.status}
+                      </div>
+                    </Link>
+                  );
+                })
+              )}
             </div>
 
             {/* Health Tip enclosed inside Results for balance */}

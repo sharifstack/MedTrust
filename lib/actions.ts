@@ -317,3 +317,82 @@ export async function completePayment(
   
   return { success: false, error: 'Appointment not found' };
 }
+
+export async function bulkRescheduleAppointments(ids: string[], date: string, time: string) {
+  const db = getDb();
+  ids.forEach((id) => {
+    const index = db.appointments.findIndex((a: any) => a.id === id);
+    if (index !== -1) {
+      db.appointments[index].date = date;
+      db.appointments[index].time = time;
+    }
+  });
+  saveDb(db);
+  revalidatePath('/');
+  revalidatePath('/appointments');
+  return { success: true };
+}
+
+export async function bulkCancelAppointments(ids: string[]) {
+  const db = getDb();
+  ids.forEach((id) => {
+    const index = db.appointments.findIndex((a: any) => a.id === id);
+    if (index !== -1) {
+      db.appointments[index].status = 'Cancelled';
+    }
+  });
+  saveDb(db);
+  revalidatePath('/');
+  revalidatePath('/appointments');
+  return { success: true };
+}
+
+// ─── Medical Results ────────────────────────────────────────────────────────
+
+export async function getRecentResults(limit = 3) {
+  const db = getDb();
+  const results: any[] = db.results ?? [];
+  return [...results]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, limit);
+}
+
+export async function getResults(filters?: {
+  search?: string;
+  status?: string;
+  category?: string;
+  sort?: string;
+}) {
+  const db = getDb();
+  let results: any[] = db.results ?? [];
+  const { search = '', status = '', category = '', sort = 'newest' } = filters ?? {};
+
+  if (search) {
+    const q = search.toLowerCase();
+    results = results.filter(
+      (r) =>
+        r.testName?.toLowerCase().includes(q) ||
+        r.doctorName?.toLowerCase().includes(q) ||
+        r.labName?.toLowerCase().includes(q) ||
+        r.category?.toLowerCase().includes(q),
+    );
+  }
+  if (status) results = results.filter((r) => r.status?.toLowerCase() === status.toLowerCase());
+  if (category) results = results.filter((r) => r.category?.toLowerCase() === category.toLowerCase());
+
+  if (sort === 'oldest') {
+    results.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  } else if (sort === 'critical') {
+    results.sort((a, b) => (a.status === 'Critical' ? -1 : b.status === 'Critical' ? 1 : 0));
+  } else {
+    results.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }
+
+  return results;
+}
+
+export async function getResult(id: string) {
+  const db = getDb();
+  const results: any[] = db.results ?? [];
+  return results.find((r) => r.id === id) ?? null;
+}

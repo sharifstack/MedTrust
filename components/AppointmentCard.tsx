@@ -14,9 +14,12 @@ import Link from 'next/link';
 interface AppointmentCardProps {
   appt: any;
   allDoctors: any[];
+  isSelected?: boolean;
+  onToggleSelect?: (id: string) => void;
+  selectionMode?: boolean;
 }
 
-export default function AppointmentCard({ appt, allDoctors }: AppointmentCardProps) {
+export default function AppointmentCard({ appt, allDoctors, isSelected = false, onToggleSelect, selectionMode = false }: AppointmentCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   
   const isActive = appt.status === 'Upcoming' || appt.status === 'Pending';
@@ -28,8 +31,38 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
   return (
     <motion.div 
       layout
-      className={`bg-surface-container-lowest rounded-2xl overflow-hidden border ${isActive ? 'border-secondary/20 shadow-md' : 'border-outline-variant/30 opacity-90'} transition-all`}
+      className={`relative bg-surface-container-lowest rounded-2xl overflow-hidden border transition-all ${
+        isSelected
+          ? 'border-secondary shadow-lg shadow-secondary/10 ring-2 ring-secondary/30'
+          : isActive
+          ? 'border-secondary/20 shadow-md'
+          : 'border-outline-variant/30 opacity-90'
+      }`}
     >
+      {/* Selection overlay tint */}
+      {isSelected && (
+        <div className="absolute inset-0 bg-secondary/[0.04] pointer-events-none z-0 rounded-2xl" />
+      )}
+
+      {/* Checkbox */}
+      {selectionMode && isActive && (
+        <button
+          onClick={() => onToggleSelect?.(appt.id)}
+          className={`absolute top-3 left-3 z-10 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all ${
+            isSelected
+              ? 'bg-secondary border-secondary'
+              : 'bg-white border-outline-variant hover:border-secondary'
+          }`}
+          aria-label={isSelected ? 'Deselect appointment' : 'Select appointment'}
+        >
+          {isSelected && (
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+        </button>
+      )}
+    
       <div className="p-md md:p-lg">
         <div className="flex flex-col md:flex-row gap-lg">
           {/* Left: Date and Status */}
@@ -98,7 +131,7 @@ export default function AppointmentCard({ appt, allDoctors }: AppointmentCardPro
                 </div>
               </>
             ) : (
-              <BookAgainModal appt={appt} onSuccess={(msg: string, type: string) => type === 'error' ? toast.error(msg) : toast.success(msg)} />
+              <BookAgainModal appt={appt} onSuccess={(msg: string) => toast.success(msg)} />
             )}
             {isCompleted && (
               <button className="flex items-center justify-center gap-2 px-md py-sm bg-surface-container border border-outline-variant text-primary rounded-xl font-label-sm font-bold hover:bg-surface-container-low transition-all">
